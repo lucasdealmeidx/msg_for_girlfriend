@@ -1,29 +1,48 @@
 import colorama
 import time
-
 from colorama import init, Fore, Style
 
 init(autoreset=True)
 
-TITLE = Fore.CYAN + Style.BRIGHT
+TITLE = Fore.LIGHTMAGENTA_EX+ Style.BRIGHT
 INFO = Fore.YELLOW + Style.BRIGHT
 SUCCESS = Fore.GREEN + Style.BRIGHT
 INPUT = Fore.WHITE + Style.BRIGHT
 MSG = Fore.LIGHTMAGENTA_EX + Style.BRIGHT
 HEART = Fore.RED + Style.BRIGHT
 
-print(TITLE + '=' * 50)
-print(TITLE + '               Sistema iniciado')
-print(TITLE + '=' * 50)
+
+print(TITLE + '\nInicializando sistema', end='')
+
+for _ in range(5):
+  print(TITLE + '.', end='', flush=True)
+  time.sleep(0.5)
+print()
+
 time.sleep(1.0)
 
-print(INFO + '\nAnalisando usuários', end='')
+print(SUCCESS + '✔ Sistema iniciado!')
+time.sleep(1.0)
+print()
 
-for i in range(10):
-    print(INFO + '.', end='', flush=True)
+print(TITLE + '╔════════════════════════════════════════════════════════════════════╗')
+print(TITLE + '║                                                                    ║')
+print(TITLE + '║                      MSG PARA SEU LOVEZINHO <3                     ║')
+print(TITLE + '║                                                                    ║')
+print(TITLE + '╚════════════════════════════════════════════════════════════════════╝')
+time.sleep(1.0)
+
+print(TITLE + '\nAnalisando usuários', end='')
+
+for i in range(5):
+    print(TITLE + '.', end='', flush=True)
     time.sleep(0.5)
+print()
 
-print('\n')
+print(SUCCESS + '✔ Dados processados!')
+time.sleep(1.0)
+
+print()
 
 nome = input(INPUT + 'Digite o seu nome: ').strip().title()
 
