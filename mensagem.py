@@ -12,13 +12,15 @@ MSG = Fore.LIGHTMAGENTA_EX + Style.BRIGHT
 HEART = Fore.RED + Style.BRIGHT
 
 
-print(TITLE + '\nInicializando sistema', end='')
+def carregamento(mensagem, cor):
+    print(mensagem, end='')
 
-for _ in range(5):
-  print(TITLE + '.', end='', flush=True)
-  time.sleep(0.5)
-print()
+    for _ in range(5):
+        print(cor + '.', end='', flush=True)
+        time.sleep(0.5)
+    print()
 
+carregamento(TITLE + '\nInicializando sistema', TITLE)
 time.sleep(1.0)
 
 print(SUCCESS + '✔ Sistema iniciado!')
@@ -32,12 +34,8 @@ print(TITLE + '║                                                              
 print(TITLE + '╚════════════════════════════════════════════════════════════════════╝')
 time.sleep(1.0)
 
-print(TITLE + '\nAnalisando usuários', end='')
-
-for i in range(5):
-    print(TITLE + '.', end='', flush=True)
-    time.sleep(0.5)
-print()
+carregamento(TITLE +'\nAnalisando usuários', TITLE)
+time.sleep(1.0)
 
 print(SUCCESS + '✔ Dados processados!')
 time.sleep(1.0)
@@ -46,11 +44,8 @@ print()
 
 nome = input(INPUT + 'Digite o seu nome: ').strip().title()
 
-print(INFO +'\nValidando informações', end='')
-
-for _ in range(10):
-    print(INFO + '.', end='', flush=True)
-    time.sleep(0.5)
+carregamento(INFO + '\nValidando informações', INFO)
+time.sleep(1.0)
 
 print('\n')
 
