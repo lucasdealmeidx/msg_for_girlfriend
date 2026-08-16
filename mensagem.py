@@ -11,17 +11,22 @@ INPUT = Fore.WHITE + Style.BRIGHT
 MSG = Fore.LIGHTMAGENTA_EX + Style.BRIGHT
 HEART = Fore.RED + Style.BRIGHT
 
-
-def carregamento(mensagem, cor):
-    print(mensagem, end='')
-
-    for _ in range(5):
-        print(cor + '.', end='', flush=True)
-        time.sleep(0.5)
+#FUNÇÃO QUE CRIA UMA BARRA DE CARREGAMENTO
+def carregamento(mensagem, cor, tamanho=50):
+    print(mensagem)
     print()
 
-carregamento(TITLE + '\nInicializando sistema', TITLE)
+    for i in range(tamanho + 1):
+        progresso = int(i / tamanho * 100)
+        preenchido = '█' * i
+        vazio = '░' * (tamanho - i)
+
+        print(f'{cor}\r[{preenchido}{vazio}] {progresso}%', end='', flush=True)
+        time.sleep(0.05)
+
+carregamento(TITLE + '\nInicializando sistema...', TITLE)
 time.sleep(1.0)
+print('\n')
 
 print(SUCCESS + '✔ Sistema iniciado!')
 time.sleep(1.0)
@@ -34,8 +39,9 @@ print(TITLE + '║                                                              
 print(TITLE + '╚════════════════════════════════════════════════════════════════════╝')
 time.sleep(1.0)
 
-carregamento(TITLE +'\nAnalisando usuários', TITLE)
+carregamento(TITLE +'\nAnalisando usuários...', TITLE)
 time.sleep(1.0)
+print('\n')
 
 print(SUCCESS + '✔ Dados processados!')
 time.sleep(1.0)
@@ -44,7 +50,7 @@ print()
 
 nome = input(INPUT + 'Digite o seu nome: ').strip().title()
 
-carregamento(INFO + '\nValidando informações', INFO)
+carregamento(TITLE + '\nValidando informações...', TITLE)
 time.sleep(1.0)
 
 print('\n')
@@ -57,28 +63,37 @@ time.sleep(1.0)
 print(MSG + f'\nOlá {nome}')
 time.sleep(1.5)
 
-print(MSG + f'\nApós uma análise completa...')
+print(MSG + '\nApós uma análise completa...')
 time.sleep(1.5)
 
-print(MSG + f'\nFoi identificado que...')
+print(MSG + '\nFoi identificado que...')
 time.sleep(1.5)
 
-print(MSG + f'\nVocê é o amor da minha vida nessa vida e em todas as outras vidas existentes 🪐❤️')
+print(MSG + '\nVocê é o amor da minha vida nessa vida e em todas as outras vidas existentes 🪐❤️')
 time.sleep(1.5)
 
-print(MSG + f'\nTe amo muito minha vida ❤️')
+print(MSG + '\nTe amo muito minha vida ❤️')
 time.sleep(1.5)
 
-print(HEART + r"""
-           *****     *****
-         ********* *********
-        *********************
-         *******************
-           ***************
-             ***********
-               *******
-                 ***
-                  *
-""")
+print(HEART + r"""                                               
+                -===-             .+***.              
+           -=+=--=+++++**-   .+****++++****+          
+         =+=======++****#####*****++======+**#        
+       .=++=+++++*****####*********++++++===**#=      
+       =+*++****************************++++***#-     
+      -+**************************************###     
+      =***************************************###     
+      -#************************************#####     
+       +##*******************************#######:     
+        =###***************************########:      
+          ######*********************########*        
+            *#####*****************########*          
+              #######*************#######+            
+                ########********########              
+                  *#######*****######+                
+                    ###############+                  
+                      *##########*                    
+                        *######=                      
+                          ###+             """)
 
 input(SUCCESS + '\nAperte Enter...para finalizar o programa!')
